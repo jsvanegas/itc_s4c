@@ -10,9 +10,31 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:TextBox runat="server" />
-            <asp:Button Text="Enviar" runat="server" />
+            <asp:TextBox runat="server" ID="txtCaja1" />
+            <asp:Button Text="Enviar" runat="server" ID="btnEnviar" OnClick="btnEnviar_Click" />
+            <asp:Button Text="Enviar JS" runat="server" ID="btnEnviarJs" OnClientClick="enviarTexto(event)" />
+            <asp:TextBox runat="server" ID="txtCaja2" />
+            <br />
+            <br />
+            <asp:DropDownList ID="cmbPaises" runat="server">
+            </asp:DropDownList>
         </div>
     </form>
+
+    <script type="text/javascript">
+
+        function enviarTexto(event) {
+            console.log(event);
+            event.preventDefault();
+            var txtCaja1 = document.getElementById('txtCaja1');
+            var txtCaja2 = document.getElementById('txtCaja2');
+            txtCaja2.value = txtCaja1.value;
+            txtCaja1.value = '';
+        }
+
+    </script>
+
+
+
 </body>
 </html>

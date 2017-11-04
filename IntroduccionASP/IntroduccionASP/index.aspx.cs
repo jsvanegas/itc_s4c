@@ -11,7 +11,26 @@ namespace IntroduccionASP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtCaja1.Text = "Hola Mundo";
 
+            var paises = new[] {
+                new { id=1, nombre="Colombia" },
+                new { id=2, nombre="Peru" },
+                new { id=3, nombre="Ecuador" },
+            };
+
+            cmbPaises.DataSource = paises;
+            cmbPaises.DataTextField = "nombre";
+            cmbPaises.DataValueField = "id";
+            cmbPaises.DataBind();
+
+
+        }
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            txtCaja2.Text = txtCaja1.Text;
+            txtCaja1.Text = "";
         }
     }
 }
